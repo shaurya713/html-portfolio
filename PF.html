@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shauryavardhan Singh Shekhawat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:      #1a1a1a;
+    --ink-2:    #3c3c3c;
+    --ink-3:    #6b6b6b;
+    --ink-4:    #9e9e9e;
+    --rule:     #d4d0c8;
+    --bg:       #faf9f6;
+    --bg-2:     #f2f0eb;
+    --accent:   #1a1a1a;
+    --serif:    'EB Garamond', Georgia, serif;
+    --sans:     'Inter', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250, 249, 246, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── LAYOUT ── */
+  main { padding-top: 52px; }
+
+  section {
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 5rem);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--rule);
+    max-width: 60px;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: calc(100vh - 52px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 0.5px solid var(--rule);
+    max-width: 100%;
+    padding-left: clamp(1.5rem, 5vw, 5rem);
+    padding-right: clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+  .hero-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--ink-3);
+  }
+
+  .hero-desc {
+    font-family: var(--serif);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    font-weight: 400;
+    color: var(--ink-3);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .btn {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.65rem 1.5rem;
+    text-decoration: none;
+    border: 0.5px solid var(--ink);
+    color: var(--ink);
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn:hover { background: var(--ink); color: var(--bg); }
+
+  .btn-ghost {
+    border-color: var(--rule);
+    color: var(--ink-3);
+  }
+
+  .btn-ghost:hover { background: var(--bg-2); color: var(--ink); }
+
+  .hero-scroll {
+    margin-top: auto;
+    padding-top: 4rem;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 0.5px;
+    background: var(--ink-4);
+  }
+
+  /* ── ABOUT ── */
+  #about { border-bottom: 0.5px solid var(--rule); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-pull {
+    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .about-pull em { font-style: italic; color: var(--ink-3); }
+
+  .about-body {
+    font-size: 1rem;
+    color: var(--ink-3);
+    line-height: 1.85;
+  }
+
+  .about-body p + p { margin-top: 1.2rem; }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.8rem;
+    border: 0.5px solid var(--rule);
+    color: var(--ink-3);
+    background: transparent;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { border-bottom: 0.5px solid var(--rule); }
+
+  .exp-list { display: flex; flex-direction: column; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 3rem;
+    padding: 2.2rem 0;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-meta {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-4);
+    line-height: 1.6;
+    padding-top: 0.2rem;
+  }
+
+  .exp-meta strong {
+    display: block;
+    color: var(--ink-3);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-org {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink-3);
+    margin-bottom: 0.8rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    font-size: 0.95rem;
+    color: var(--ink-3);
+    line-height: 1.75;
+  }
+
+  .exp-bullets li {
+    padding-left: 1.1em;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+
+  .exp-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--ink-4);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { border-bottom: 0.5px solid var(--rule); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0;
+    border-top: 0.5px solid var(--rule);
+    border-left: 0.5px solid var(--rule);
+  }
+
+  .proj-card {
+    border-right: 0.5px solid var(--rule);
+    border-bottom: 0.5px solid var(--rule);
+    padding: 2rem;
+    transition: background 0.2s;
+  }
+
+  .proj-card:hover { background: var(--bg-2); }
+
+  .proj-num {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-4);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+  }
+
+  .proj-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+  }
+
+  .proj-stack {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-4);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .proj-desc {
+    font-size: 0.9rem;
+    color: var(--ink-3);
+    line-height: 1.75;
+  }
+
+  /* ── SKILLS ── */
+  #skills { border-bottom: 0.5px solid var(--rule); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .skill-group-title {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .skill-items {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--ink-3);
+    line-height: 2;
+  }
+
+  /* ── EDUCATION / CERTS ── */
+  #education { border-bottom: 0.5px solid var(--rule); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .edu-block + .edu-block { margin-top: 2rem; }
+
+  .edu-year {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-4);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+
+  .edu-school {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--ink-3);
+    margin-bottom: 0.2rem;
+  }
+
+  .edu-detail {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-4);
+  }
+
+  .cert-list { list-style: none; }
+
+  .cert-list li {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--ink-3);
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .cert-issuer {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-4);
+    white-space: nowrap;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: var(--ink-3);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .contact-details { list-style: none; }
+
+  .contact-details li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    font-size: 0.95rem;
+  }
+
+  .contact-details .c-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    align-self: center;
+  }
+
+  .contact-details a, .contact-details span {
+    color: var(--ink-2);
+    text-decoration: none;
+    font-family: var(--serif);
+  }
+
+  .contact-details a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 0.5px solid var(--rule);
+    padding: 2rem clamp(1.5rem, 5vw, 5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--ink-4);
+  }
+
+  .footer-note {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-4);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── DIVIDER ── */
+  .rule { height: 0.5px; background: var(--rule); }
+
+  /* ── ANIMATIONS ── */
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .about-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-name">SSS</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-inner">
+    <p class="hero-kicker">Portfolio — AI Engineer &amp; NLP Researcher</p>
+    <h1 class="hero-name">Shauryavardhan<br><em>Singh Shekhawat</em></h1>
+    <p class="hero-desc">Building intelligent systems at the intersection of language, machines, and meaning — from transformer architectures to full-stack platforms.</p>
+    <div class="hero-links">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="https://github.com/shaurya713" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/shauryavardhan-singh-shekhawat-8a1135296" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="hero-scroll">Scroll to explore</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About</p>
+  <div class="about-grid fade-in">
+    <div>
+      <p class="about-pull">Researching <em>language models</em> that tell the truth, building systems that don't break.</p>
+    </div>
+    <div class="about-body">
+      <p>I am a third-year Computer Science student specialising in Artificial Intelligence, Data Science, and Statistics at BK Birla Institute of Engineering &amp; Technology, Pilani — currently serving as an NLP Research Intern at WiSOC Lab, BITS Pilani.</p>
+      <p>My research centres on hallucination detection in Large Language Models, semantic search, and evaluation frameworks for AI-generated text. Outside the lab I build production systems: hotel management platforms, forecasting pipelines, mobile applications.</p>
+      <p>I believe the clearest measure of good engineering is a system that is both honest and reliable.</p>
+      <div class="tag-row">
+        <span class="tag">LLMs</span>
+        <span class="tag">NLP</span>
+        <span class="tag">RAG</span>
+        <span class="tag">Transformers</span>
+        <span class="tag">Django</span>
+        <span class="tag">React</span>
+        <span class="tag">Python</span>
+        <span class="tag">Swift</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <div class="exp-list">
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <strong>WiSOC Lab, BITS Pilani</strong>
+        2026 – Present
+      </div>
+      <div>
+        <p class="exp-role">NLP Research Intern</p>
+        <p class="exp-org">Pilani, Rajasthan</p>
+        <ul class="exp-bullets">
+          <li>Researching LLM hallucination detection and transformer-based architectures.</li>
+          <li>Developing semantic search systems and embedding-based retrieval pipelines.</li>
+          <li>Experimenting with vector embeddings, prompt engineering, and AI evaluation frameworks.</li>
+          <li>Contributing to research projects in intelligent text understanding and generation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <strong>Kadam Bagh, Sariska</strong>
+        2025 – Present
+      </div>
+      <div>
+        <p class="exp-role">Full-Stack Developer &amp; Systems Engineer</p>
+        <p class="exp-org">Rajasthan, India</p>
+        <ul class="exp-bullets">
+          <li>Managing digital infrastructure and web systems for hospitality operations.</li>
+          <li>Developing automation workflows for operational efficiency and online presence.</li>
+          <li>Supporting website optimisation, system integration, and technology modernisation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <strong>Hotel Jaipur Classic</strong>
+        2023
+      </div>
+      <div>
+        <p class="exp-role">HMS &amp; Channel Manager Developer</p>
+        <p class="exp-org">Jaipur, Rajasthan</p>
+        <ul class="exp-bullets">
+          <li>Designed and built a complete hotel management and booking automation system.</li>
+          <li>Automated room inventory, billing, reservations, and customer record management.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <strong>Zidio</strong>
+        2023
+      </div>
+      <div>
+        <p class="exp-role">Data Science Intern</p>
+        <p class="exp-org">Remote</p>
+        <ul class="exp-bullets">
+          <li>Built a time-series stock market forecasting model using predictive analytics.</li>
+          <li>Performed data preprocessing, trend analysis, and feature engineering.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Selected Projects</p>
+  <div class="projects-grid">
+
+    <div class="proj-card fade-in">
+      <p class="proj-num">01</p>
+      <h3 class="proj-title">LLM Hallucination Analysis Platform</h3>
+      <p class="proj-stack">Python · NLP · Transformers · LLM Evaluation</p>
+      <p class="proj-desc">Framework to analyse and evaluate hallucinations in AI-generated responses. Implements semantic similarity analysis, retrieval-based verification, and transformer-level evaluation pipelines.</p>
+    </div>
+
+    <div class="proj-card fade-in">
+      <p class="proj-num">02</p>
+      <h3 class="proj-title">Hospital Management System</h3>
+      <p class="proj-stack">Python · MySQL · Tkinter · RBAC</p>
+      <p class="proj-desc">Full healthcare platform with role-based dashboards for Admin, Doctor, Staff, and Patient users. Features appointment scheduling, billing, prescriptions, and secure authentication.</p>
+    </div>
+
+    <div class="proj-card fade-in">
+      <p class="proj-num">03</p>
+      <h3 class="proj-title">Stock Market Forecasting System</h3>
+      <p class="proj-stack">Python · Time-Series · Machine Learning</p>
+      <p class="proj-desc">Predictive models using historical market data with time-series forecasting and feature engineering. Generates actionable insights for trend prediction and investment decision support.</p>
+    </div>
+
+    <div class="proj-card fade-in">
+      <p class="proj-num">04</p>
+      <h3 class="proj-title">Hotel Management &amp; Channel Manager</h3>
+      <p class="proj-stack">Python · SQL · Database Design</p>
+      <p class="proj-desc">Centralised system for hotel operations: bookings, room allocation, customer management, billing, inventory, and reporting — all in a single integrated platform.</p>
+    </div>
+
+    <div class="proj-card fade-in">
+      <p class="proj-num">05</p>
+      <h3 class="proj-title">BITS Pilani Convocation App</h3>
+      <p class="proj-stack">Swift · iOS · Xcode</p>
+      <p class="proj-desc">Mobile prototype for student convocation management. Streamlines event logistics and participant coordination with a mobile-first, performance-focused interface.</p>
+    </div>
+
+    <div class="proj-card fade-in" style="background: var(--bg-2);">
+      <p class="proj-num" style="color: var(--ink-4);">——</p>
+      <h3 class="proj-title" style="color: var(--ink-3); font-weight: 400; font-style: italic;">More on GitHub</h3>
+      <p class="proj-stack"></p>
+      <p class="proj-desc">
+        <a href="https://github.com/shaurya713" target="_blank" rel="noopener" style="color: var(--ink-3); text-decoration: underline; text-underline-offset: 3px; font-family: var(--serif); font-size: 0.9rem;">github.com/shaurya713 →</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Technical Skills</p>
+  <div class="skills-grid fade-in">
+
+    <div class="skill-group">
+      <p class="skill-group-title">Languages</p>
+      <div class="skill-items">Python · Java · C · C++ · SQL · Swift · XML</div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">AI &amp; NLP</p>
+      <div class="skill-items">Large Language Models · NLP · Transformers · BERT · Word2Vec · RAG · Prompt Engineering · Hallucination Detection · Semantic Search</div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Web</p>
+      <div class="skill-items">Django · Django REST Framework · React · HTML5 · CSS3 · JavaScript · REST APIs</div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Mobile</p>
+      <div class="skill-items">iOS (Swift · Xcode) · Android (Android Studio · XML)</div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Data &amp; ML</p>
+      <div class="skill-items">Machine Learning · Data Science · Time-Series Analysis · Feature Engineering</div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Databases &amp; Tools</p>
+      <div class="skill-items">MySQL · Database Design · Query Optimisation · Git · GitHub · Tkinter</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">Education &amp; Certifications</p>
+  <div class="edu-grid fade-in">
+    <div>
+      <div class="edu-block">
+        <p class="edu-year">2023 – 2027</p>
+        <p class="edu-degree">B.Tech — Computer Science &amp; Engineering (Hons.)</p>
+        <p class="edu-school">BK Birla Institute of Engineering &amp; Technology, Pilani</p>
+        <p class="edu-detail">Specialisation: AI, Data Science &amp; Statistics</p>
+      </div>
+      <div class="edu-block" style="margin-top: 2rem;">
+        <p class="edu-year">2023</p>
+        <p class="edu-degree">Senior Secondary — Class XII</p>
+        <p class="edu-school">Birla School, Pilani</p>
+        <p class="edu-detail">80.08%</p>
+      </div>
+      <div class="edu-block" style="margin-top: 2rem;">
+        <p class="edu-year">2021</p>
+        <p class="edu-degree">Secondary — Class X</p>
+        <p class="edu-school">Birla Shishu Vihar, Pilani</p>
+        <p class="edu-detail">76.6%</p>
+      </div>
+    </div>
+
+    <div>
+      <ul class="cert-list">
+        <li>Full Stack Web Development <span class="cert-issuer">IIT Bombay</span></li>
+        <li>Python Programming <span class="cert-issuer">IIT Bombay</span></li>
+        <li>Java Programming <span class="cert-issuer">IIT Bombay</span></li>
+        <li>C &amp; C++ Programming <span class="cert-issuer">IIT Bombay</span></li>
+      </ul>
+
+      <div style="margin-top: 2.5rem;">
+        <p class="skill-group-title" style="margin-bottom: 1rem;">Leadership</p>
+        <ul class="exp-bullets" style="font-size: 0.95rem; color: var(--ink-3); line-height: 2;">
+          <li>Team Leader — Team Pixel</li>
+          <li>Ramp Walk Coordinator — Basant 2026</li>
+          <li>Member — IETE Student Forum</li>
+          <li>NCC Cadet</li>
+          <li>Varsity Athlete — Track &amp; Field</li>
+          <li>Hackathon Participant &amp; Project Presenter</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <div class="contact-grid fade-in">
+    <div>
+      <h2 class="contact-heading">Let's build something worth building.</h2>
+      <p class="contact-sub">Open to research collaborations, internship opportunities, and interesting problems in AI, NLP, and full-stack engineering.</p>
+      <a href="mailto:shaurya024@icloud.com" class="btn">Send an email</a>
+    </div>
+    <div>
+      <ul class="contact-details">
+        <li>
+          <span class="c-label">Email</span>
+          <a href="mailto:shaurya024@icloud.com">shaurya024@icloud.com</a>
+        </li>
+        <li>
+          <span class="c-label">Phone</span>
+          <span>+91 92168 53329</span>
+        </li>
+        <li>
+          <span class="c-label">Location</span>
+          <span>Pilani, Rajasthan, India</span>
+        </li>
+        <li>
+          <span class="c-label">GitHub</span>
+          <a href="https://github.com/shaurya713" target="_blank" rel="noopener">github.com/shaurya713</a>
+        </li>
+        <li>
+          <span class="c-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/shauryavardhan-singh-shekhawat-8a1135296" target="_blank" rel="noopener">LinkedIn Profile</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="footer-name">Shauryavardhan Singh Shekhawat</span>
+  <span class="footer-note">Pilani, Rajasthan · 2025</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
